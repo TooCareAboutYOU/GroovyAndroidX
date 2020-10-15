@@ -1,0 +1,6 @@
+rootProject.name='适配AndroidX'
+include ':app'
+include ':lib_base'
+include ':lib_groovy'
+include ':Module-jetpack'
+//project(':Module-jetpack').projectDir=new File(rootDir,'chapter01/example01')

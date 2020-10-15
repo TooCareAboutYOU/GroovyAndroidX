@@ -1,0 +1,131 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('../androidx.keystore')
+            storePassword 'androidx'
+            keyAlias = 'androidx'
+            keyPassword 'androidx'
+        }
+    }
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+
+    defaultConfig {
+        applicationId "com.androidx.dushu"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        // Specifies the application ID for the test APK.
+        testApplicationId "com.androidx.test.dushu"
+        // Specifies the fully-qualified class name of the test instrumentation runner.
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+        // If set to 'true', enables the instrumentation class to start and stop profiling.
+        // If set to false (default), profiling occurs the entire time the instrumentation
+        // class is running.
+        testHandleProfiling true
+        // If set to 'true', indicates that the Android system should run the instrumentation
+        // class as a functional test. The default value is 'false'
+        testFunctionalTest true
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+        multiDexEnabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':lib_base')
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    testImplementation 'junit:junit:4.13'
+
+    // Core library
+    androidTestImplementation 'androidx.test:core:1.2.0'
+
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+
+    // Assertions
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.ext:truth:1.2.0'
+    androidTestImplementation 'com.google.truth:truth:0.42'
+
+    // Espresso dependencies
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-web:3.2.0'
+    androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.2.0'
+
+    // The following Espresso dependency can be either "implementation"
+    // or "androidTestImplementation", depending on whether you want the
+    // dependency to appear on your APK's compile classpath or the test APK
+    // classpath.
+    androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.2.0'
+    api 'com.squareup.okhttp3:okhttp:3.14.9'
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-gson:2.3.0'
+    api 'com.orhanobut:logger:2.2.0'
+}
+
+//
+//interface GitHubService {
+//    @GET("users/{user}/repos")
+//    Call<String> listRepos(@Path("user") String user);
+//
+////    http://api.m.mtime.cn/PageSubArea/TrailerList.api
+////    https://www.wanandroid.com/project/list/1/json?cid=1
+//    @GET("project/list/1/json")
+//    Call<ResponseBody> getString(@Query("cid") int cid);
+//
+//}
+//
+//task _okHttp3() {
+//
+//    Logger
+//    doFirst {
+//        def client = new OkHttpClient();
+//        def request = new Request.Builder().url("http://api.m.mtime.cn/PageSubArea/TrailerList.api").build()
+//        def response = client.newCall(request).execute()
+//        println("打印：" + response.body().string())
+//        response.close()
+//    }
+//
+//    def retrofit = new Retrofit.Builder()
+//            .baseUrl("https://www.wanandroid.com/")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//    GitHubService service = retrofit.create(GitHubService.class)
+//    Call<ResponseBody> stringCall = service.getString(1)
+//    def respon = stringCall.execute();
+//    println("Log_Print：" + respon.body().string())
+//}

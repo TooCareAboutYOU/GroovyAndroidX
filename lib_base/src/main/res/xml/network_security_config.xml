@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+
+    <!--
+        https://developer.android.google.cn/training/articles/security-config?hl=en#network-security-config
+  base-config：应用于该应用尝试建立的所有连接
+       system：用于预安装的系统CA证书
+         user：用于用户添加的CA证书
+domain-config：覆盖特定目的地
+includeSubdomains: 如果为“true”，则此域规则匹配域和所有子域，包括子域的子域。否则，规则只适用于精确匹配。
+    -->
+
+    <!--    配置7.0抓包-->
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+
+<!--
+    App自己的接口请求http
+-->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates
+                overridePins="true"
+                src="system" />
+            <certificates
+                overridePins="true"
+                src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

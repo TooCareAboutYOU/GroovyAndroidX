@@ -1,0 +1,14 @@
+
+E
+java:S3740)"/Provide the parametrized type for this generic.(‰ş£µ
+q
+java:S3008"[Rename this field "PATH_GROOVY_FILE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÓ³©
+E
+java:S3740G"/Provide the parametrized type for this generic.(×¬¢
+`	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(•´”ûÿÿÿÿ
+M	java:S1060"9Replace this use of System.out or System.err by a logger.(ı–ø
+S	java:S1067"9Replace this use of System.out or System.err by a logger.(â½¶õùÿÿÿÿ
+`	java:S1121"FDefine and throw a dedicated exception instead of using a generic one.(¦Ã÷äıÿÿÿÿ
+w
+java:S1488H"\Immediately return this expression instead of assigning it to the temporary variable "ifoo".(å¹ùÚúÿÿÿÿ
+`	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(¦ªÌ¯üÿÿÿÿ

@@ -1,0 +1,8 @@
+
+Q	java:S125'"<This block of commented-out lines of code should be removed.(ë­òÖ
+>
+java:S1604#"(Make this anonymous inner class a lambda(¼ÔòÌ
+]
+java:S11920"GDefine a constant instead of duplicating this literal "123456" 3 times.(Ûí¬º
+V	java:S110"<This class has 9 parents which is greater than 5 authorized.(Øš„˜úÿÿÿÿ
+M	java:S106V"9Replace this use of System.out or System.err by a logger.(âƒó-

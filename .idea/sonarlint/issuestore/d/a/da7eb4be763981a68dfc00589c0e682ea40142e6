@@ -1,0 +1,31 @@
+
+D
+java:S1199’"-Extract this nested code block into a method.(»ÚÊÐ
+D
+java:S1199•"-Extract this nested code block into a method.(Ô„˜·
+I
+java:S1199™"-Extract this nested code block into a method.(ÖéÐßùÿÿÿÿ
+I
+java:S1199"-Extract this nested code block into a method.(”ÈÅ¸ûÿÿÿÿ
+C
+java:S1199¡"-Extract this nested code block into a method.(”Õ
+D
+java:S1199¥"-Extract this nested code block into a method.(ã’©å
+K
+java:S1066¢"/Merge this if statement with the enclosing one.(žƒ‡’ùÿÿÿÿ
+Z
+java:S1155‡">Use isEmpty() to check whether the collection is empty or not.(Úò¢îùÿÿÿÿ
+o
+java:S1450 "TRemove the "mView" field and declare it as a local variable in the relevant methods.(¿×­”ûÿÿÿÿ
+>
+java:S1659!"#Declare "acEt2" on a separate line.(Éà¼Ùøÿÿÿÿ
+>
+java:S1659!"#Declare "acEt3" on a separate line.(Éà¼Ùøÿÿÿÿ
+>
+java:S1659!"#Declare "acEt4" on a separate line.(Éà¼Ùøÿÿÿÿ
+>
+java:S1659!"#Declare "acEt5" on a separate line.(Éà¼Ùøÿÿÿÿ
+>
+java:S1659!"#Declare "acEt6" on a separate line.(Éà¼Ùøÿÿÿÿ
+h	java:S100R"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( úÿƒÿÿÿÿÿ
+i	java:S100¾"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚úí›úÿÿÿÿ
