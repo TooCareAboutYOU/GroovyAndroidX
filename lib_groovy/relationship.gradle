@@ -42,9 +42,13 @@ task D {
 B.dependsOn(A)
 //b要以c结尾
 B.finalizedBy(C)
+
+/**
+ * 失效函数
+ */
 //c要在a的后面执行
-C.mustRunAfter(A)
+//C.mustRunAfter(A)
 //d要在c的后面执行
-D.shouldRunAfter(C)
+//D.shouldRunAfter(C)
 
 

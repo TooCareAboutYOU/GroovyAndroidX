@@ -10,24 +10,31 @@ final String BUILD_APPS_ALL = "all"
 final String BUILD_APPS_RELEASE = "release"
 final String BUILD_APPS_EXCLUDE_RELEASE = "exclude_release"
 
+def muiltTask='MuiltTask'
+
 task ex48QqRelease {
+    group(muiltTask)
     println('打应用宝的包')
 }
 task ex48360Release {
+    group(muiltTask)
     doLast {
         println('打360的包')
     }
 }
 task ex48HuaWeiRelease {
+    group(muiltTask)
     doLast {
         println('打华为的包')
     }
 }
 task ex48MiuiRelease {
+    group(muiltTask)
     println('打小米的包')
 }
 task buildMuiltApks {
-    group BasePlugin.BUILD_GROUP
+//    group BasePlugin.BUILD_GROUP
+    group(muiltTask)
     description "打多渠道包"
     println('---------- 多渠道构建 ----------')
 }

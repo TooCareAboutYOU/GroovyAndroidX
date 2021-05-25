@@ -1,6 +1,5 @@
-rootProject.name='适配AndroidX'
+rootProject.name='Groovy-Jetpack'
 include ':app'
 include ':lib_base'
 include ':lib_groovy'
 include ':Module-jetpack'
-//project(':Module-jetpack').projectDir=new File(rootDir,'chapter01/example01')

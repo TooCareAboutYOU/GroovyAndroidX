@@ -1,7 +1,10 @@
 group = "AndroidGradleBook"
 version = "1.0.0"
 
+def CUSTOM_GROUP="CustomTask"
+
 task CustomTask1 {
+    group(CUSTOM_GROUP)
     doFirst {
         println('CustomTask1：doFirst')
     }
@@ -12,6 +15,7 @@ task CustomTask1 {
 
 //TaskContainer创建任务，即 tasks
 tasks.create("CustomTask2") {
+    group(CUSTOM_GROUP)
     doFirst {
         println('CustomTask2：doFirst')
     }
@@ -25,19 +29,23 @@ tasks.create("CustomTask2") {
  * 任务依赖
  */
 task ex35Hello {
+    group(CUSTOM_GROUP)
     println('ex35Hello')
 }
 task ex35World {
+    group(CUSTOM_GROUP)
     println('ex35World')
 }
 //依赖一个
 task ex35Main(dependsOn: ex35Hello) {
+    group(CUSTOM_GROUP)
     doLast {
         println('ex35Main')
     }
 }
 //依赖多个
 task ex35MuiltTask {
+    group(CUSTOM_GROUP)
     dependsOn ex35Hello, ex35World
     doFirst {
         println('ex35MuiltTask')
@@ -48,13 +56,14 @@ task ex35MuiltTask {
  * 任务间通过API控制、交互CustomAPI
  */
 task CustomAPI {
+    group(CUSTOM_GROUP)
     println('中间段')
 }
 CustomAPI.doFirst {
     println('开始段')
 }
 CustomAPI.doLast {
-    println project.hasProperty('CustomAPI')
+    println "是否存在CustomAPI任务："+project.hasProperty('CustomAPI')
     println('结尾段')
 }
 //自定义一个project属性
@@ -65,6 +74,7 @@ ext {
     address = '上海市浦东新区金杨路785弄56号502室'
 }
 task exCustomProperty {
+    group(CUSTOM_GROUP)
     println("年龄：${age}")
     println("手机号：${phone}")
     println("地址：${address}")
@@ -77,13 +87,16 @@ def buildTime() {
 }
 
 /**
- * 任务分组和描述
+ * 任务分组和描述 在build组目录中
  */
 Task mTask = task ex43GroupTask
-mTask.group(BasePlugin.BUILD_GROUP)
+mTask.group(group(CUSTOM_GROUP))//BasePlugin.BUILD_GROUP)
 mTask.description('这是一个构建的引导任务')
+mTask.doFirst {
+    println("doFirst group${group}, dependencies：${description}")
+}
 mTask.doLast {
-    println("group${group}, dependencies：${description}")
+    println("doLast group${group}, dependencies：${description}")
 }
 
 
@@ -99,6 +112,7 @@ class CustomTask extends DefaultTask {
 }
 
 task ex45CustomTask(type: CustomTask) {
+    group(CUSTOM_GROUP)
     doFirst {
         println('Task执行之前in doFirst')
     }
@@ -111,22 +125,26 @@ task ex45CustomTask(type: CustomTask) {
  * 任务排序
  */
 task ex46OrderTask1 {
+    group(CUSTOM_GROUP)
     doLast {
         println('ex46OrderTask1')
     }
 }
 task ex46OrderTask2 {
+    group(CUSTOM_GROUP)
     doLast {
         println('ex46OrderTask2')
     }
 }
-ex46OrderTask1.mustRunAfter(ex46OrderTask2)
+//ex46OrderTask2.dependsOn(ex46OrderTask1)
+//ex46OrderTask1.finalizedBy(ex46OrderTask2)
 
 /**
  * 任务的启用和禁止
  * enabled 默认是true
  */
 task ex47DisenableTask {
+    group(CUSTOM_GROUP)
     doLast {
         println('ex47DisenableTask')
     }

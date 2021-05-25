@@ -1,7 +1,7 @@
 apply plugin: 'java-library'
 apply plugin: 'groovy'
-//apply from: file('MuiltApks.gradle')
-//apply from: file('AndroidGradle.gradle')
+apply from: file('MuiltApks.gradle')
+apply from: file('AndroidGradle.gradle')
 apply from: file('relationship.gradle')
 
 dependencies {
@@ -12,8 +12,10 @@ dependencies {
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
+def GROUP_TAG='Customs'
+
 //task renameGroovyToJava {
-//    group('custom')
+//    group(GROUP_TAG)
 //    doLast{
 //        delete "$buildDir/classes/java"
 //        File file = new File("$buildDir/classes/groovy")
@@ -34,7 +36,7 @@ targetCompatibility = "1.8"
 // * 版本查询
 // */
 //task exeCheckVersion {
-//    group('custom')
+//    group(GROUP_TAG)
 //    def request = new Request.Builder().url("http://api.bq04.com/apps/latest/${id}?api_token=${api_token}").build()
 //    def response = client.newCall(request).execute()
 //    println("打印exeCheckVersion--->>>>>" + response.body().string())
@@ -45,7 +47,7 @@ targetCompatibility = "1.8"
 // * 发布版本，获取上传凭证
 // */
 //task exeCheckUploadCertificate {
-//    group('custom')
+//    group(GROUP_TAG)
 //    def requestBody = new FormBody.Builder()
 //            .add("type", "android")
 //            .add("bundle_id", "io.dushu.fandengreader")
@@ -61,7 +63,7 @@ targetCompatibility = "1.8"
 // * 查看应用列表
 // */
 //task exeCheckAppList {
-//    group('custom')
+//    group(GROUP_TAG)
 //    def request = new Request.Builder().url("http://api.bq04.com/apps?api_token=${api_token}").build()
 //    def response = client.newCall(request).execute()
 //    println("打印exeCheckAppList--->>>>>" + response.body().string())
@@ -72,7 +74,7 @@ targetCompatibility = "1.8"
 // * 查看应用详细信息
 // */
 //task exeCheckAppDetailInfo {
-//    group('custom')
+//    group(GROUP_TAG)
 //    def request = new Request.Builder().url("http://api.bq04.com/apps/${id}?api_token=${api_token}").build()
 //    def response = client.newCall(request).execute()
 //    println("打印exeCheckAppDetailInfo--->>>>>" + response.body().string())
@@ -83,7 +85,7 @@ targetCompatibility = "1.8"
 // * 修改应用信息
 // */
 //task exeUpdateAppInfo {
-//    group('custom')
+//    group(GROUP_TAG)
 ////    def requestBody = new FormBody.Builder()
 ////            .add("id", id)
 ////            .add("api_token", api_token)
@@ -108,7 +110,7 @@ targetCompatibility = "1.8"
 // * 第二步：安装应用
 // */
 //task exeInstallApp(){
-//    group('custom')
+//    group(GROUP_TAG)
 //    def downloadToken=null
 //    doFirst {
 //        def request = new Request.Builder().url("http://api.bq04.com/apps/${id}/download_token?api_token=${api_token}").build()
